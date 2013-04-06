@@ -1,6 +1,12 @@
 $(document).ready(function () {
   $('#bg-selector form').submit(function() {
     var modal$ = $('#bg-modal .modal');
+    var resultsDiv$ = $('#bg-modal .modal-body .results')
+    var loadingMessage$ = $('#bg-modal li.message');
+
+    // Empty the modal body and show loading message
+    resultsDiv$.empty();
+    loadingMessage$.show();
 
     // Query the proxy server
     var searchQuery = $('#bg-selector input').val();
@@ -9,12 +15,9 @@ $(document).ready(function () {
       data: { search_terms: searchQuery },
       type: 'GET',
       success: function(results) {
-        // Empty the modal body
-        var modalBody$ = $('#bg-modal .modal-body')
-        modalBody$.empty();
+        loadingMessage$.hide();
         for (var i = 0; i < results.images.length; i++) {
-          modalBody$.append('<img src=' + results.images[i].thumb_url + ' class="st-bg-image">')
-          debugger
+          resultsDiv$.append('<img src=' + results.images[i].thumb_url + ' class="st-bg-image">')
         }
       }
     })
