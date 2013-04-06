@@ -1,7 +1,10 @@
+<!DOCTYPE HTML>
+
 <html>
   <head>
     <script type="text/javascript" src="assets/scripts/lib/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="assets/scripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/background_image.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap.min.css">
   </head>
 
@@ -27,14 +30,37 @@
           </div>
         </div>
 
+        <!--Start background image selector-->
         <div id="search-bg">
           <div class="page-header">
             <h3>Select a background image</h3>
           </div>
-          <div>
-            Code goes here...
+
+          <div id="bg-selector">
+            <form class="form-search">
+              <input type="text" class="input-large search-query" placeholder="Search background...">
+              <button type="submit" class="btn">Search</button>
+            </form>
           </div>
         </div>
+
+        <div id="bg-modal">
+          <div class="modal hide">
+            <div class="modal-header">
+              <h3>Awesome backgrounds</h3>
+              <!--<button class="close" data-dismiss="modal">x</button> -->
+            </div>
+
+            <div class="modal-body">
+              <p>Hello</p>
+            </div>
+
+            <div class="modal-footer">
+              <a class="btn" data-dismiss="modal" href="#">Close</a>
+            </div>
+          </div>
+        </div>
+        <!--End background image selector-->
 
         <div id="edit-canvas">
           <div class="page-header">
@@ -44,6 +70,7 @@
             Code goes here...
           </div>
         </div>
+
       </div>
     </div>
 
