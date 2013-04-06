@@ -129,7 +129,7 @@ class FlashFoto {
 		if($params === null) {
 			return $url;
 		}
-		return $url . '?' . http_build_query($params);
+		return $url . '/?' . http_build_query($params);
 	}
 
 	/**

@@ -5,9 +5,9 @@ require_once "ff.conf.php";
 
 
 // for testing only
-$_POST['method'] = 'get';
-$_POST['url'] = 'https://www.filepicker.io/api/file/OGAgCDZESeqNDIAOCc8W';
-$_POST['image_id'] = '178353';
+// $_POST['method'] = 'get';
+// // $_POST['url'] = 'https://www.filepicker.io/api/file/OGAgCDZESeqNDIAOCc8W';
+// $_POST['image_id'] = '178353';
 
 function dispatch() {
   $method = $_POST['method'];
@@ -43,10 +43,8 @@ function ff_get() {
 
   $image_id = $_POST['image_id'];
   $response = $ff->get($image_id, array('version' => "UniformBackgroundMasked"));
-
-  // header()
-  echo "<img src='data:image/png;base64," . base64_encode($response) . "'>";
-  // echo base64_encode($response);
+  
+  echo json_encode(base64_encode($response));
 }
 
 function ff_remove_bg() {

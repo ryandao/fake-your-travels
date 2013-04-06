@@ -5,7 +5,10 @@
     <script type="text/javascript" src="assets/scripts/lib/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="assets/scripts/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/scripts/background_image.js"></script>
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script type="text/javascript" src="assets/js/ff.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/index.css">
   </head>
 
   <body>
@@ -26,7 +29,8 @@
             <h3>Upload your photo</h3>
           </div>
           <div>
-            Code goes here...
+            <input type="filepicker" data-fp-apikey="AhyWohKMSG6uimWcifzE1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="true" data-fp-services="COMPUTER,DROPBOX,IMAGE_SEARCH,URL" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};ff_add(out)">
+            <div id="photo_wrapper"><img id="photo"></img></div>
           </div>
         </div>
 
