@@ -40,22 +40,32 @@
 
   $api          = new ShutterstockAPI($api_username, $api_key);
   $images       = $api->search($search_terms);
-  echo("<pre>");
-  var_dump($images);
-  echo("</pre>");
+  // echo("<pre>");
+  // var_dump($images);
+  // echo("</pre>");
 
+  $images_json = array('images' => array());
   if ($images) {
-    for ( $i = 0; $i < 3; $i++ ) {
+    for ( $i = 0; $i < 50; $i++ ) {
+      $image = array();
       $description  = $images->results[$i]->description;
-      $thumb        = $images->results[$i]->thumb_large->url;
+      $thumb_url    = $images->results[$i]->thumb_large->url;
       $thumb_width  = $images->results[$i]->thumb_large_width;
       $thumb_height = $images->results[$i]->thumb_large_height;
-      echo '<div style="display:inline-block;width:' . $thumb_width . 'px; height:' . $thumb_height . 'px; overflow:hidden;">';
-      echo '<img src="' . $thumb . '" alt="' . $description . '">' . "\n\n";
-      echo '</div>';
-      echo '<textarea rows="10" cols="80">' . "\n";
-      var_dump($images->results[$i]);
-      echo "</textarea><br><hr>\n\n";
+      $preview      = $images->results[$i]->preview;
+      $photo_id     = $images->results[$i]->photo_id;
+
+      $image['description']  = $description;
+      $image['thumb_url']    = $thumb_url;
+      $image['thumb_width']  = $thumb_width;
+      $image['thumb_height'] = $thumb_height;
+      $image['preview']      = $preview;
+      $image['photo_id']     = $photo_id;
+
+      array_push($images_json['images'], $image);
     }
   }
+
+  header('Content-Type: application/json');
+  echo json_encode($images_json);
 ?>
