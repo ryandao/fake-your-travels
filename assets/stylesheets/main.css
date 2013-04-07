@@ -44,5 +44,10 @@ span.searching .icon-spinner {
 }
 
 .action-group {
-  margin-top: 10px;
+  text-align: center;
+  margin: 10px;
+}
+
+.action-group button {
+  margin-left: 5px;
 }
