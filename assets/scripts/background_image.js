@@ -17,8 +17,18 @@ $(document).ready(function () {
       success: function(results) {
         loadingMessage$.hide();
         for (var i = 0; i < results.images.length; i++) {
-          resultsDiv$.append('<img src=' + results.images[i].thumb_url + ' class="st-bg-image">')
+          var imgHtml = '<a href="#" id="' + i + '"><img src=' + results.images[i].thumb_url + ' class="st-bg-image"></a>';
+          resultsDiv$.append(imgHtml);
         }
+
+        $('a', resultsDiv$).click(function() {
+          var id = parseInt($(this).attr('id'));
+          loadImages({
+            background: results.images[id].preview.url
+          }, initStage);
+          modal$.modal('hide');
+
+        })
       }
     })
 

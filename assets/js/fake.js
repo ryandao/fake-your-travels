@@ -22,11 +22,11 @@ function update(activeAnchor) {
     break;
     case 'bottomRight':
     bottomLeft.setY(anchorY);
-    topRight.setX(anchorX); 
+    topRight.setX(anchorX);
     break;
     case 'bottomLeft':
     bottomRight.setY(anchorY);
-    topLeft.setX(anchorX); 
+    topLeft.setX(anchorX);
     break;
   }
 
@@ -109,16 +109,18 @@ function initStage(images) {
     width: 578,
     height: 400
   });
+
   var darthVaderGroup = new Kinetic.Group({
     x: 270,
     y: 100,
     draggable: true
   });
-  var yodaGroup = new Kinetic.Group({
-    x: 100,
-    y: 110,
-    draggable: true
-  });
+
+  var backgroundGroup = new Kinetic.Group({
+    x: 0,
+    y: 0,
+    draggable: false
+  })
   var layer = new Kinetic.Layer();
 
   /*
@@ -128,7 +130,7 @@ function initStage(images) {
    * of its layer and stage
    */
    layer.add(darthVaderGroup);
-   layer.add(yodaGroup);
+   layer.add(backgroundGroup);
    stage.add(layer);
 
   // darth vader
@@ -150,25 +152,15 @@ function initStage(images) {
   darthVaderGroup.on('dragstart', function() {
     this.moveToTop();
   });
-  // yoda
-  var yodaImg = new Kinetic.Image({
+
+  // Background
+  var bgImg = new Kinetic.Image({
     x: 0,
     y: 0,
-    image: images.yoda,
-    width: 93,
-    height: 104,
-    name: 'image'
-  });
+    image: images.background,
+  })
 
-  yodaGroup.add(yodaImg);
-  addAnchor(yodaGroup, 0, 0, 'topLeft');
-  addAnchor(yodaGroup, 93, 0, 'topRight');
-  addAnchor(yodaGroup, 93, 104, 'bottomRight');
-  addAnchor(yodaGroup, 0, 104, 'bottomLeft');
-
-  yodaGroup.on('dragstart', function() {
-    this.moveToTop();
-  });
+  backgroundGroup.add(bgImg);
 
   stage.draw();
 }
@@ -179,7 +171,7 @@ var sources = {
 };
 
 $('#person').change(function() {
-  loadImages(sources, initStage);  
+  loadImages(sources, initStage);
 });
 
 
