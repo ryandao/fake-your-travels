@@ -119,7 +119,7 @@ function initStage(images) {
   backgroundGroup = new Kinetic.Group({
     x: 0,
     y: 0,
-    draggable: true
+    draggable: false
   })
   layer = new Kinetic.Layer();
 

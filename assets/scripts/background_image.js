@@ -20,7 +20,7 @@ $(document).ready(function () {
     // Query the proxy server
     var searchQuery = $('#bg-selector input').val();
     $.ajax({
-      url: '/wish-you-were-here/shutterstock.php',
+      url: '/wish-you-were-here/images.php',
       data: { search_terms: searchQuery },
       type: 'GET',
       success: function(results) {
