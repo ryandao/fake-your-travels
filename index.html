@@ -31,51 +31,63 @@
 
     <div id="main">
       <div class="container">
-        <div id="your-photo">
-          <div class="page-header">
-            <h3>Upload your photo</h3>
-          </div>
-          <div>
-            <input id="person_filepicker" type="filepicker" data-fp-apikey="AhyWohKMSG6uimWcifzE1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="true" data-fp-services="COMPUTER,DROPBOX,IMAGE_SEARCH,URL">
-            <div id="photo_wrapper"><img id="person" class="photo person"></img></div>
-          </div>
-        </div>
-
-        <!--Start background image selector-->
-        <div id="search-bg">
-          <div class="page-header">
-            <h3>Select a background image</h3>
-          </div>
-
-          <div id="bg-selector">
-            <form class="form-search">
-              <input type="text" class="input-large search-query" placeholder="Search background...">
-              <button type="submit" class="btn">Search</button>
-            </form>
-          </div>
-        </div>
-
-        <div id="bg-modal">
-          <div class="modal hide">
-            <div class="modal-header">
-              <h3>Awesome backgrounds</h3>
-              <!--<button class="close" data-dismiss="modal">x</button> -->
+        <div class="row">
+          <div id="your-photo" class="span6">
+            <div class="page-header">
+              <h3>Upload your photo</h3>
             </div>
-
-            <div class="modal-body">
-              <li class="message message-searching hide">
+            <div>
+              <input id="person_filepicker"
+                     type="filepicker"
+                     data-fp-apikey="AhyWohKMSG6uimWcifzE1z"
+                     data-fp-mimetypes="image/*"
+                     data-fp-container="modal"
+                     data-fp-multiple="true"
+                     data-fp-services="COMPUTER,DROPBOX,IMAGE_SEARCH,URL"
+                     data-fp-button-class="btn btn-primary">
+              <span class="searching hide">
                 <i class="icon-spinner icon-spin"></i>
-                <h6>Loading...</h6>
-              </li>
-              <div class="results"></div>
-            </div>
-
-            <div class="modal-footer">
-              <a class="btn" data-dismiss="modal" href="#">Close</a>
+              </span>
+              <div id="photo_wrapper" class="hide"><img id="person" class="photo person"></img></div>
             </div>
           </div>
+
+          <!--Start background image selector-->
+          <div id="search-bg" class="span6">
+            <div class="page-header">
+              <h3>Select a background image</h3>
+            </div>
+
+            <div id="bg-selector">
+              <form class="form-search">
+                <input type="text" class="input-large search-query" placeholder="Search background...">
+                <button type="submit" class="btn">Search</button>
+              </form>
+            </div>
+          </div>
+
+          <div id="bg-modal">
+            <div class="modal hide">
+              <div class="modal-header">
+                <h3>Awesome backgrounds</h3>
+                <!--<button class="close" data-dismiss="modal">x</button> -->
+              </div>
+
+              <div class="modal-body">
+                <li class="message message-searching hide">
+                  <i class="icon-spinner icon-spin"></i>
+                  <h6>Loading...</h6>
+                </li>
+                <div class="results"></div>
+              </div>
+
+              <div class="modal-footer">
+                <a class="btn" data-dismiss="modal" href="#">Close</a>
+              </div>
+            </div>
+          </div>
+          <!--End background image selector-->
         </div>
-        <!--End background image selector-->
 
         <div id="edit-canvas">
           <div class="page-header">

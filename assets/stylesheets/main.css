@@ -7,3 +7,11 @@
 .icon-spinner {
   font-size: 60px;
 }
+
+#your-photo span.searching {
+  margin-left: 10px;
+}
+
+#your-photo span.searching .icon-spinner {
+  font-size: 25px;
+}
