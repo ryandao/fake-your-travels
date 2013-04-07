@@ -23,10 +23,7 @@ function display_image(image_data) {
   window.personImg = $('#person').attr('src')
 
   if (typeof backgroundImg != 'undefined') {
-    loadImages({
-      person: personImg,
-      background: backgroundImg
-    }, initStage)
+    refresh_canvas();
   }
 }
 
@@ -42,11 +39,7 @@ var featherEditor = new Aviary.Feather({
   onSave: function(imageID, newURL) {
     var img = document.getElementById(imageID);
     img.src = newURL;
-    var sources = {
-      darthVader: $('#person').attr('src'),
-      yoda: 'http://www.html5canvastutorials.com/demos/assets/yoda.jpg'
-    };
-    loadImages(sources, initStage);
+    refresh_canvas();
   }
 });
 
