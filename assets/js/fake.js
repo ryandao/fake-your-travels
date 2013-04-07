@@ -104,10 +104,12 @@ function loadImages(sources, callback) {
 }
 
 function initStage(images) {
+  var bg_ref_image = new Image();
+  bg_ref_image.src = images.background.src;
   stage = new Kinetic.Stage({
     container: 'edit-fake',
-    width: 578,
-    height: 400
+    width: bg_ref_image.width,
+    height: bg_ref_image.height
   });
 
   personGroup = new Kinetic.Group({
@@ -144,13 +146,16 @@ function initStage(images) {
     backgroundGroup.add(bgImg);
   }
 
+  var person_ref_image = new Image();
+  person_ref_image.src = images.person.src;
+  console.log(person_ref_image);
   // Person
   if (images.person) {
     var personImg = new Kinetic.Image({
       x: 0,
       y: 0,
-      width: 200,
-      height: 138,
+      width: person_ref_image.width,
+      height: person_ref_image.height,
       image: images.person,
       name: 'image'
     });
@@ -181,6 +186,7 @@ function save_to_data_url() {
 function preview() {
   var data_url = save_to_data_url();
   $('#preview').attr('src', data_url);
+  $('#save').attr('data-fp-url', data_url);
 }
 
 function clearCanvas() {
