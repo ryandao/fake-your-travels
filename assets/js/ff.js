@@ -35,12 +35,13 @@ function ff_post(data, callback) {
 var featherEditor = new Aviary.Feather({
   apiKey: '1234567',
   apiVersion: 2,
-  tools: ['draw', 'stickers'],
   onSave: function(imageID, newURL) {
     if (typeof backgroundImg != 'undefined') {
       var img = document.getElementById(imageID);
       img.src = newURL;
-      person_proxy(newURL);
+      if (imageID == "person") {
+        person_proxy(newURL);  
+      }
     }
   }
 });
@@ -65,6 +66,10 @@ function launchEditor(id, src) {
 $(document).ready(function() {
   filepicker.setKey('AhyWohKMSG6uimWcifzE1z');
   $('.photo').click(function() {
+    launchEditor($(this).attr('id'), $(this).attr('src'));
+  })
+
+  $('#preview').click(function() {
     launchEditor($(this).attr('id'), $(this).attr('src'));
   })
 

@@ -178,7 +178,7 @@ function save_to_data_url() {
   return data_url;
 }
 
-function save() {
+function preview() {
   var data_url = save_to_data_url();
   $('#preview').attr('src', data_url);
 }
@@ -199,7 +199,7 @@ function refresh_canvas() {
     
 
 $(document).ready(function() {
-  $('#save').click(function() {
-    save();
+  $('#preview-btn').click(function() {
+    preview();
   });
 })
