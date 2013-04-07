@@ -9,7 +9,7 @@
     $imgUrl = $api->getDownloadUrl(
       '8102993',
       $imgId,
-      'e3850e6fbcf942d39cf036e1b028196ee2b86188',
+      '6f1e7687d7d3b6234f240e0a1e7870af278a4d3a',
       'medium',
       'jpg'
     );
