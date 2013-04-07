@@ -249,17 +249,4 @@ $(document).ready(function() {
         });
       });
   });
-
-  // $('#save').click(function() {
-  //   filepicker.storeUrl(
-  //     $('#save').attr('b64'),
-  //     {filename: 'travels.png',
-  //      base64decode: true},
-  //     function(filio){
-  //       // console.log(JSON.stringify(FPFile));
-  //       filepicker.exportFile(filio, {mimetype: 'image/png', services: ['FACEBOOK', 'DROPBOX', 'COMPUTER']}, function(filio) {
-  //         console.log(JSON.stringify(filio));
-  //       });
-  //     });
-  // });
 })
