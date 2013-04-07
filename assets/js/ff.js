@@ -38,7 +38,7 @@ function ff_post(data, callback) {
 var featherEditor = new Aviary.Feather({
   apiKey: '1234567',
   apiVersion: 2,
-  tools: ['enhance', 'effects', 'orientation', 'crop', 'sharpness', 'text']
+  tools: ['enhance', 'effects', 'orientation', 'crop', 'sharpness', 'text'],
   onSave: function(imageID, newURL) {
     if (typeof backgroundImg != 'undefined') {
       var img = document.getElementById(imageID);

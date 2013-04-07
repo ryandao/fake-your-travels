@@ -15,7 +15,7 @@ $data = array(
                        "appver" => "0.1",
                        "images" => array($_POST['url']),
                        "lat" => "37.41893",
-                       "lng" => "122.146919",
+                       "lng" => "-122.146919",
                        "customer" => array(
                           "firstName" => "Gill",
                           "lastName" => "Bates",
@@ -24,7 +24,7 @@ $data = array(
                         ),
                         "channelInfo" => "",
                         "callBackLink" => "",
-                        "publisherId" => "0123456789",
+                        "publisherId" => "",
                         "prodGroupId" => ""
                        );
 

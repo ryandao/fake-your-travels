@@ -6,7 +6,7 @@ function wg_checkout(data) {
   var url = data.landingUrl;
   var token = data.token;
 
-  open_in_new_tab(url + "&" + token);
+  open_in_new_tab(url + "&token=" + token);
 }
 
 function open_in_new_tab(url )
