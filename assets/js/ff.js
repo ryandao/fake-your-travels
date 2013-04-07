@@ -39,9 +39,18 @@ var featherEditor = new Aviary.Feather({
   onSave: function(imageID, newURL) {
     var img = document.getElementById(imageID);
     img.src = newURL;
+    image_proxy(newUrl);
     refresh_canvas();
   }
 });
+
+function image_proxy(url) {
+  jQuery.post("assets/php/image-proxy.php", {link: url}, update_person, "json");
+}
+
+function update_person(data_json) {
+  personImg = "data:image/png;base64," + data_json;
+}
 
 function launchEditor(id, src) {
   featherEditor.launch({
