@@ -1,3 +1,12 @@
+function bg_proxy(url) {
+  jQuery.post("assets/php/image-proxy.php", {link: url}, update_bg, "json");
+}
+
+function update_bg(data_json) {
+  backgroundImg = "data:image/png;base64," + data_json;
+  refresh_canvas();
+}
+
 $(document).ready(function () {
   $('#bg-selector form').submit(function() {
     var modal$ = $('#bg-modal .modal');
@@ -25,10 +34,7 @@ $(document).ready(function () {
           var id = parseInt($(this).attr('id'));
           window.backgroundImg = results.images[id].preview.url;
           if (typeof personImg != 'undefined') {
-            loadImages({
-              person: personImg,
-              background: backgroundImg
-            }, initStage);
+            bg_proxy(backgroundImg);
           }
 
           modal$.modal('hide');

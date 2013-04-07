@@ -183,12 +183,18 @@ function save() {
   $('#preview').attr('src', data_url);
 }
 
+function clearCanvas() {
+  $('#edit-fake div').remove();
+}
+
 function refresh_canvas() {
   var sources = {
-      person: personImg,
-      background: backgroundImg
-    };
-    loadImages(sources, initStage);
+    person: personImg,
+    background: backgroundImg
+  };
+
+  clearCanvas();
+  loadImages(sources, initStage);
 }
     
 

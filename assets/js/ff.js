@@ -23,7 +23,7 @@ function display_image(image_data) {
   window.personImg = $('#person').attr('src')
 
   if (typeof backgroundImg != 'undefined') {
-    refresh_canvas();
+    bg_proxy(backgroundImg);
   }
 }
 
@@ -37,19 +37,21 @@ var featherEditor = new Aviary.Feather({
   apiVersion: 2,
   tools: ['draw', 'stickers'],
   onSave: function(imageID, newURL) {
-    var img = document.getElementById(imageID);
-    img.src = newURL;
-    image_proxy(newUrl);
-    refresh_canvas();
+    if (typeof backgroundImg != 'undefined') {
+      var img = document.getElementById(imageID);
+      img.src = newURL;
+      person_proxy(newURL);
+    }
   }
 });
 
-function image_proxy(url) {
+function person_proxy(url) {
   jQuery.post("assets/php/image-proxy.php", {link: url}, update_person, "json");
 }
 
 function update_person(data_json) {
   personImg = "data:image/png;base64," + data_json;
+  refresh_canvas();
 }
 
 function launchEditor(id, src) {
