@@ -196,10 +196,31 @@ function refresh_canvas() {
   clearCanvas();
   loadImages(sources, initStage);
 }
-    
+
 
 $(document).ready(function() {
+  $('#go-real-btn').click(function() {
+    $.ajax({
+      url: '/wish-you-were-here/download.php',
+      data: { image_id: '107232053' },
+      type: 'post',
+      success: function(result) {
+        window.backgroundImg = result.url;
+        if (typeof personImg != 'undefined') {
+          bg_proxy(backgroundImg);
+        }
+
+        // Switch go real btn to preview btn
+        $('#preview-btn').show();
+        $('#go-real-btn').hide();
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    })
+  });
+
   $('#preview-btn').click(function() {
     preview();
-  });
+  })
 })
