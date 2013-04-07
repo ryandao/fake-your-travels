@@ -1,4 +1,9 @@
-#photo {
+#person {
   height: 320px;
   width: 320px;
+}
+
+#edit-fake {
+  margin: 0;
+  padding: 0;
 }

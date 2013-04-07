@@ -6,7 +6,11 @@
     <script type="text/javascript" src="assets/scripts/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/scripts/background_image.js"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
     <script type="text/javascript" src="assets/js/ff.js"></script>
+    <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.4.0.min.js"></script>
+    <script type="text/javascript" src="assets/js/fake.js"></script>
+
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/index.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
@@ -31,8 +35,8 @@
             <h3>Upload your photo</h3>
           </div>
           <div>
-            <input type="filepicker" data-fp-apikey="AhyWohKMSG6uimWcifzE1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="true" data-fp-services="COMPUTER,DROPBOX,IMAGE_SEARCH,URL" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};ff_add(out)">
-            <div id="photo_wrapper"><img id="photo"></img></div>
+            <input id="person_filepicker" type="filepicker" data-fp-apikey="AhyWohKMSG6uimWcifzE1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="true" data-fp-services="COMPUTER,DROPBOX,IMAGE_SEARCH,URL">
+            <div id="photo_wrapper"><img id="person" class="photo person"></img></div>
           </div>
         </div>
 
@@ -77,7 +81,7 @@
             <h3>Fake your travel photo</h3>
           </div>
           <div>
-            Code goes here...
+            <div id="edit-fake"></div>
           </div>
         </div>
 
