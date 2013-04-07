@@ -104,8 +104,6 @@ function loadImages(sources, callback) {
 }
 
 function initStage(images) {
-  var bg_ref_image = new Image();
-  bg_ref_image.src = images.background.src;
   stage = new Kinetic.Stage({
     container: 'edit-fake',
     width: 600,
@@ -224,9 +222,7 @@ $(document).ready(function() {
       type: 'post',
       success: function(result) {
         window.backgroundImg = result.url;
-        if (typeof personImg != 'undefined') {
-          bg_proxy(backgroundImg);
-        }
+        bg_proxy(backgroundImg);
 
         // Switch go real btn to preview btn
         $('#preview-btn').show();

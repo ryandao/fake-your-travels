@@ -4,7 +4,7 @@
   $api_username = "phd4";
   $api_key      = "ce077fbd895028ca877141ec8dbfc2a0a5b85736";
 
-  if ($imgId = $_GET['image_id']) {
+  if ($imgId = $_POST['image_id']) {
     $api = new ShutterstockAPI($api_username, $api_key);
     $imgUrl = $api->getDownloadUrl(
       '8102993',

@@ -18,7 +18,7 @@ $(document).ready(function () {
   $('#bg-selector form').submit(function() {
     var modal$ = $('#bg-modal .modal');
     var resultsDiv$ = $('#bg-modal .modal-body .results')
-    var loadingMessage$ = $('#bg-modal li.message');
+    var loadingMessage$ = $('#bg-modal .message');
 
     // Empty the modal body and show loading message
     resultsDiv$.empty();
@@ -40,9 +40,7 @@ $(document).ready(function () {
         $('a', resultsDiv$).click(function() {
           var id = parseInt($(this).attr('id'));
           window.backgroundImg = results.images[id].preview.url;
-          // if (typeof personImg != 'undefined') {
-            bg_proxy(backgroundImg);
-          // }
+          bg_proxy(backgroundImg);
 
           modal$.modal('hide');
 

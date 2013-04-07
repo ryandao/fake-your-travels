@@ -76,9 +76,6 @@ function launchEditor(id, src) {
 
 $(document).ready(function() {
   filepicker.setKey('AhyWohKMSG6uimWcifzE1z');
-  $('.photo').click(function() {
-    launchEditor($(this).attr('id'), $(this).attr('src'));
-  })
 
   $('#preview').click(function() {
     launchEditor($(this).attr('id'), $(this).attr('src'));
