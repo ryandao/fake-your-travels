@@ -19,14 +19,15 @@ function ff_remove_bg(image_json) {
 }
 
 function display_image(image_data) {
-  $('#photo_wrapper').show();
   $('#your-photo span.searching').hide();
   $('#person').attr('src', 'data:image/png;base64,' + image_data);
-  window.personImg = $('#person').attr('src')
+  window.personImage = $('#person').attr('src')
 
-  if (typeof backgroundImg != 'undefined') {
-    bg_proxy(backgroundImg);
+  var image = new Image();
+  image.onload = function() {
+    setPersonImage(image, personGroup);
   }
+  image.src = personImage;
 }
 
 function ff_post(data, callback) {
@@ -55,8 +56,13 @@ function person_proxy(url) {
 }
 
 function update_person(data_json) {
-  personImg = "data:image/png;base64," + data_json;
-  refresh_canvas();
+  personImage = "data:image/png;base64," + data_json;
+  var image = new Image();
+  image.onload = function() {
+    personImg.setImage(image);
+    layer.draw();
+  }
+  image.src = personImage;
 }
 
 function launchEditor(id, src) {
