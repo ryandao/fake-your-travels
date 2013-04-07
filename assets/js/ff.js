@@ -78,8 +78,8 @@ function launchEditor(id, src) {
 $(document).ready(function() {
   filepicker.setKey('AhyWohKMSG6uimWcifzE1z');
 
-  $('#preview').click(function() {
-    launchEditor($(this).attr('id'), $(this).attr('src'));
+  $('#preview-wrapper #edit').click(function() {
+    launchEditor('preview', $('#preview').attr('src'));
   })
 
   $('#person_filepicker').change(function() {

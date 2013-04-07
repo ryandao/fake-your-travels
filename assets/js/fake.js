@@ -217,11 +217,13 @@ function refresh_canvas() {
 
 $(document).ready(function() {
   $('#go-real-btn').click(function() {
+    $('#edit-canvas .searching').show();
     $.ajax({
       url: '/wish-you-were-here/download.php',
       data: { image_id: '107232053' },
       type: 'post',
       success: function(result) {
+        $('#edit-canvas .searching').hide();
         window.backgroundImg = result.url;
         bg_proxy(backgroundImg);
 

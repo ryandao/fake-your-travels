@@ -38,7 +38,14 @@
           <div>
             <div id="edit-fake"></div>
             <button class="btn btn-danger btn-emphasis hide" id="preview-btn" type="button"><h4>Preview</h4></button>
-            <button class="btn btn-danger btn-emphasis" id="go-real-btn" type="button"><h4>Make it real!<h4></button>
+            <button class="btn btn-danger btn-emphasis" id="go-real-btn" type="button">
+              <h4>
+                Make it real!
+                <span class="searching hide">
+                  <i class="icon-spinner icon-spin"></i>
+                </span>
+              </h4>
+            </button>
           </div>
         </div>
         <!--End canvas-->
@@ -104,10 +111,11 @@
 
         <div id="preview-wrapper" class="modal hide">
           <img id="preview"></img>
-          <button id="save">
-            Save Photo
-          </button>
-          <button id="wg_btn">Send to Walgreens</button>
+          <div class="action-group">
+            <button id="save">Save Photo</button>
+            <button id="edit">Edit Photo</button>
+            <button id="wg_btn">Send to Walgreens</button>
+          </div>
         </div>
       </div>
     </div>
