@@ -20,11 +20,14 @@ function ff_remove_bg(image_json) {
 
 function display_image(image_data) {
   $('#person').attr('src', 'data:image/png;base64,' + image_data);
-  var sources = {
-    darthVader: $('#person').attr('src'),
-    yoda: 'http://www.html5canvastutorials.com/demos/assets/yoda.jpg'
-  };
-  loadImages(sources, initStage);
+  window.personImg = $('#person').attr('src')
+
+  if (typeof backgroundImg != 'undefined') {
+    loadImages({
+      person: personImg,
+      background: backgroundImg
+    }, initStage)
+  }
 }
 
 function ff_post(data, callback) {
@@ -64,7 +67,7 @@ $(document).ready(function() {
   $('#person_filepicker').change(function() {
     var out = '';
     for(var i = 0; i < event.fpfiles.length; i++) {
-      out += event.fpfiles[i].url; 
+      out += event.fpfiles[i].url;
       out += ' ';
     }
     ff_add(out);

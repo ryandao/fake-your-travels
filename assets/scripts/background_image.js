@@ -23,9 +23,14 @@ $(document).ready(function () {
 
         $('a', resultsDiv$).click(function() {
           var id = parseInt($(this).attr('id'));
-          loadImages({
-            background: results.images[id].preview.url
-          }, initStage);
+          window.backgroundImg = results.images[id].preview.url;
+          if (typeof personImg != 'undefined') {
+            loadImages({
+              person: personImg,
+              background: backgroundImg
+            }, initStage);
+          }
+
           modal$.modal('hide');
 
         })

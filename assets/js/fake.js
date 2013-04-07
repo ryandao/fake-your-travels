@@ -104,24 +104,24 @@ function loadImages(sources, callback) {
 }
 
 function initStage(images) {
-  var stage = new Kinetic.Stage({
+  stage = new Kinetic.Stage({
     container: 'edit-fake',
     width: 578,
     height: 400
   });
 
-  var darthVaderGroup = new Kinetic.Group({
+  personGroup = new Kinetic.Group({
     x: 270,
     y: 100,
     draggable: true
   });
 
-  var backgroundGroup = new Kinetic.Group({
+  backgroundGroup = new Kinetic.Group({
     x: 0,
     y: 0,
-    draggable: false
+    draggable: true
   })
-  var layer = new Kinetic.Layer();
+  layer = new Kinetic.Layer();
 
   /*
    * go ahead and add the groups
@@ -129,45 +129,48 @@ function initStage(images) {
    * stage so that the groups have knowledge
    * of its layer and stage
    */
-   layer.add(darthVaderGroup);
-   layer.add(backgroundGroup);
-   stage.add(layer);
-
-  // darth vader
-  var darthVaderImg = new Kinetic.Image({
-    x: 0,
-    y: 0,
-    image: images.darthVader,
-    width: 200,
-    height: 138,
-    name: 'image'
-  });
-
-  darthVaderGroup.add(darthVaderImg);
-  addAnchor(darthVaderGroup, 0, 0, 'topLeft');
-  addAnchor(darthVaderGroup, 200, 0, 'topRight');
-  addAnchor(darthVaderGroup, 200, 138, 'bottomRight');
-  addAnchor(darthVaderGroup, 0, 138, 'bottomLeft');
-
-  darthVaderGroup.on('dragstart', function() {
-    this.moveToTop();
-  });
+  layer.add(backgroundGroup);
+  layer.add(personGroup);
+  stage.add(layer);
 
   // Background
-  var bgImg = new Kinetic.Image({
-    x: 0,
-    y: 0,
-    image: images.background,
-  })
+  if (images.background) {
+    var bgImg = new Kinetic.Image({
+      x: 0,
+      y: 0,
+      image: images.background,
+    })
 
-  backgroundGroup.add(bgImg);
+    backgroundGroup.add(bgImg);
+  }
+
+  // Person
+  if (images.person) {
+    var personImg = new Kinetic.Image({
+      x: 0,
+      y: 0,
+      width: 200,
+      height: 138,
+      image: images.person,
+      name: 'image'
+    });
+
+    personGroup.add(personImg);
+    addAnchor(personGroup, 0, 0, 'topLeft');
+    addAnchor(personGroup, 200, 0, 'topRight');
+    addAnchor(personGroup, 200, 138, 'bottomRight');
+    addAnchor(personGroup, 0, 138, 'bottomLeft');
+
+    personGroup.on('dragstart', function() {
+      this.moveToTop();
+    });
+  }
 
   stage.draw();
 }
 
 var sources = {
-  darthVader: $('#person').attr('src'),
-  yoda: 'http://www.html5canvastutorials.com/demos/assets/yoda.jpg'
+  person: $('#person').attr('src'),
 };
 
 $('#person').change(function() {
