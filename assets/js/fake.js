@@ -146,16 +146,13 @@ function initStage(images) {
     backgroundGroup.add(bgImg);
   }
 
-  var person_ref_image = new Image();
-  person_ref_image.src = images.person.src;
-  console.log(person_ref_image);
   // Person
   if (images.person) {
     var personImg = new Kinetic.Image({
       x: 0,
       y: 0,
-      width: person_ref_image.width,
-      height: person_ref_image.height,
+      width: 200,
+      height: 138,
       image: images.person,
       name: 'image'
     });
@@ -186,7 +183,12 @@ function save_to_data_url() {
 function preview() {
   var data_url = save_to_data_url();
   $('#preview').attr('src', data_url);
-  $('#save').attr('data-fp-url', data_url);
+  // $('#save').attr('b64', data_url);
+  // $('#save').attr('b64', toB64(data_url));
+}
+
+function toB64(durl) {
+  return durl.slice(22);
 }
 
 function clearCanvas() {
@@ -229,4 +231,28 @@ $(document).ready(function() {
   $('#preview-btn').click(function() {
     preview();
   })
+
+  $('#save').click(function() {
+    filepicker.storeUrl(
+      $('#preview').attr('src'),
+      {filename: 'travels.png'},
+      function(filio){
+        filepicker.exportFile(filio, {mimetype: 'image/png', services: ['FACEBOOK', 'DROPBOX', 'COMPUTER']}, function(filio) {
+          console.log(JSON.stringify(filio));
+        });
+      });
+  });
+
+  // $('#save').click(function() {
+  //   filepicker.storeUrl(
+  //     $('#save').attr('b64'),
+  //     {filename: 'travels.png',
+  //      base64decode: true},
+  //     function(filio){
+  //       // console.log(JSON.stringify(FPFile));
+  //       filepicker.exportFile(filio, {mimetype: 'image/png', services: ['FACEBOOK', 'DROPBOX', 'COMPUTER']}, function(filio) {
+  //         console.log(JSON.stringify(filio));
+  //       });
+  //     });
+  // });
 })

@@ -10,6 +10,7 @@
     <script type="text/javascript" src="assets/js/ff.js"></script>
     <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.4.0.min.js"></script>
     <script type="text/javascript" src="assets/js/fake.js"></script>
+    <script type="text/javascript" src="assets/js/wg.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/index.css">
@@ -90,10 +91,17 @@
         <div id="preview-wrapper">
           <img id="preview"></img>
         </div>
-        <button id="save" data-fp-mimetype="image/png">
+        <button id="save">
           Save Photo
         </button>
+        <!-- <button id="save" data-fp-mimetype="image/png" data-fp-url="http://www.filepicker.io/static/img/success.png">
+          Save Photo
+        </button> -->
+        <button data-fp-mimetype="image/png"
+  data-fp-url="http://www.filepicker.io/static/img/success.png">
+     Save File</button>
 
+        <button id="wg_btn">Send to Walgreens</button>
       </div>
     </div>
 
