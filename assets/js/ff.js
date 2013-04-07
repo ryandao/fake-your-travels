@@ -1,6 +1,6 @@
 function ff_add(image_url) {
   var data = { method: 'add', url: image_url };
-
+  $('#your-photo span.searching').show();
   ff_post(data, ff_remove_bg);
 }
 
@@ -19,6 +19,8 @@ function ff_remove_bg(image_json) {
 }
 
 function display_image(image_data) {
+  $('#photo_wrapper').show();
+  $('#your-photo span.searching').hide();
   $('#person').attr('src', 'data:image/png;base64,' + image_data);
   window.personImg = $('#person').attr('src')
 
@@ -40,7 +42,7 @@ var featherEditor = new Aviary.Feather({
       var img = document.getElementById(imageID);
       img.src = newURL;
       if (imageID == "person") {
-        person_proxy(newURL);  
+        person_proxy(newURL);
       }
     }
   }
