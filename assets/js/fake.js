@@ -108,8 +108,8 @@ function initStage(images) {
   bg_ref_image.src = images.background.src;
   stage = new Kinetic.Stage({
     container: 'edit-fake',
-    width: bg_ref_image.width,
-    height: bg_ref_image.height
+    width: 600,
+    height: 400
   });
 
   personGroup = new Kinetic.Group({
@@ -135,40 +135,50 @@ function initStage(images) {
   layer.add(personGroup);
   stage.add(layer);
 
-  // Background
-  if (images.background) {
-    var bgImg = new Kinetic.Image({
-      x: 0,
-      y: 0,
-      image: images.background,
-    })
-
-    backgroundGroup.add(bgImg);
-  }
-
-  // Person
-  if (images.person) {
-    var personImg = new Kinetic.Image({
-      x: 0,
-      y: 0,
-      width: 200,
-      height: 138,
-      image: images.person,
-      name: 'image'
-    });
-
-    personGroup.add(personImg);
-    addAnchor(personGroup, 0, 0, 'topLeft');
-    addAnchor(personGroup, 200, 0, 'topRight');
-    addAnchor(personGroup, 200, 138, 'bottomRight');
-    addAnchor(personGroup, 0, 138, 'bottomLeft');
-
-    personGroup.on('dragstart', function() {
-      this.moveToTop();
-    });
-  }
-
   stage.draw();
+}
+
+function setBackgroundImage(image, backgroundGroup) {
+  bgImg = new Kinetic.Image({
+    x: 0,
+    y: 0,
+    image: image,
+  })
+
+  backgroundGroup.add(bgImg);
+  var bgRatio = bgImg.getWidth() / bgImg.getHeight();
+  bgImg.setHeight(400);
+  bgImg.setWidth(400 * bgRatio);
+  bgImg.setPosition({x: (600 - bgImg.getWidth()) / 2, y: 0});
+  backgroundGroup.getLayer().draw();
+}
+
+function setPersonImage(image, personGroup) {
+  personImg = new Kinetic.Image({
+    x: 0,
+    y: 0,
+    image: image,
+    name: 'image'
+  });
+  var personRatio = personImg.getWidth() / personImg.getHeight();
+  personImg.setHeight(200);
+  personImg.setWidth(200 * personRatio);
+
+  personGroup.add(personImg);
+  addAnchor(personGroup, 0, 0, 'topLeft');
+  addAnchor(personGroup, personImg.getWidth(), 0, 'topRight');
+  addAnchor(personGroup, personImg.getWidth(), personImg.getHeight(), 'bottomRight');
+  addAnchor(personGroup, 0, personImg.getHeight(), 'bottomLeft');
+
+  personGroup.on('dragstart', function() {
+    this.moveToTop();
+  });
+
+  personImg.on('dblclick', function() {
+    launchEditor('person', $('img#person').attr('src'));
+  })
+
+  personGroup.getLayer().draw();
 }
 
 var sources = {

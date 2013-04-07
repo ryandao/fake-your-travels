@@ -15,3 +15,18 @@
 #your-photo span.searching .icon-spinner {
   font-size: 25px;
 }
+
+#edit-canvas {
+  text-align: center;
+}
+
+#edit-canvas canvas {
+  position: relative !important;
+}
+
+#edit-fake {
+  height: 400px;
+  width: 600px;
+  background-color: #CCCCCC;
+  margin: auto;
+}

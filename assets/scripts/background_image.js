@@ -4,10 +4,17 @@ function bg_proxy(url) {
 
 function update_bg(data_json) {
   backgroundImg = "data:image/png;base64," + data_json;
-  refresh_canvas();
+  var image = new Image();
+  image.onload = function() {
+    setBackgroundImage(image, backgroundGroup);
+  }
+  image.src = backgroundImg;
+  // refresh_canvas();
 }
 
 $(document).ready(function () {
+  initStage({});
+
   $('#bg-selector form').submit(function() {
     var modal$ = $('#bg-modal .modal');
     var resultsDiv$ = $('#bg-modal .modal-body .results')
@@ -33,9 +40,9 @@ $(document).ready(function () {
         $('a', resultsDiv$).click(function() {
           var id = parseInt($(this).attr('id'));
           window.backgroundImg = results.images[id].preview.url;
-          if (typeof personImg != 'undefined') {
+          // if (typeof personImg != 'undefined') {
             bg_proxy(backgroundImg);
-          }
+          // }
 
           modal$.modal('hide');
 
