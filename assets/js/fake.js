@@ -242,7 +242,7 @@ $(document).ready(function() {
   $('#save').click(function() {
     filepicker.storeUrl(
       $('#preview').attr('src'),
-      {filename: 'travels.png'},
+      {filename: 'travels'},
       function(filio){
         filepicker.exportFile(filio, {mimetype: 'image/png', services: ['FACEBOOK', 'DROPBOX', 'COMPUTER']}, function(filio) {
           console.log(JSON.stringify(filio));
