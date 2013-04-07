@@ -3,28 +3,38 @@
 $apikey = "a61e8e47ca83e86a2b8c705899ae9f6d";
 $afid = 'hackathon';
 
-$_POST['url'] = "https://services-qa.walgreens.com/api/util/v2.0/mweb5url";
-$_POST['data'] = array(
+$url = "https://services-qa.walgreens.com/api/util/v2.0/mweb5url";
+$data = array(
                        "transaction" => "photoCheckoutv2",
-                       "apiKey" => $apikey,
-                       "devinf" => "Android,2.33",
-                       "appver" => "0.1",
-                       "act" => "genCredV2",
-                       "view" => "genCredV2JSON",
+                       "apikey" => $apikey,
+                       "devinf" => "Chrome,2.33",
+                       "act" => "mweb5UrlV2",
+                       "view" => "mweb5UrlV2JSON",
                        "affId" => $afid,
-                       "image" => array("https://www.dropbox.com/s/nokbnwstqywjfpt/walking-on-air-27l4gzc.jpeg")
+                       "expiryTime" => "04-20-2013 03:11:36",
+                       "appver" => "0.1",
+                       "images" => array($_POST['url']),
+                       "lat" => "42.138199",
+                       "lng" => "-87.945799",
+                       "customer" => array(
+                          "firstName" => "",
+                          "lastName" => "",
+                          "email" => "",
+                          "phone" => ""
+                        ),
+                        "channelInfo" => "",
+                        "callBackLink" => "",
+                        "publisherId" => "0123456789",
+                        "prodGroupId" => ""
                        );
 
-$url = $_POST['url'];
-$data = $_POST['data'];
-var_dump($data);
 $postdata = http_build_query($data);
 
 $opts = array('http' =>
     array(
         'method'  => 'POST',
-        'header'  => 'Content-type: application/x-www-form-urlencoded',
-        'content' => $postdata
+        'header'  => 'Content-type: application/json',
+        'content' => json_encode($data)
     )
 );
 $context  = stream_context_create($opts);

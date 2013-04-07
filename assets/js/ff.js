@@ -43,9 +43,10 @@ var featherEditor = new Aviary.Feather({
       img.src = newURL;
       if (imageID == "person") {
         person_proxy(newURL);
-      } else if (imageID == 'preview') {
-        $('#save').attr('data-fp-url', newURL);
       }
+      // } else if (imageID == 'preview') {
+      //   $('#save').attr('data-fp-url', newURL);
+      // }
     }
   }
 });
