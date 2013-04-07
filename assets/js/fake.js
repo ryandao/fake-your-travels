@@ -46,9 +46,9 @@ function addAnchor(group, x, y, name) {
   var anchor = new Kinetic.Circle({
     x: x,
     y: y,
-    stroke: '#666',
-    fill: '#ddd',
-    strokeWidth: 2,
+    // stroke: '#666',
+    // fill: '#ddd',
+    // strokeWidth: 2,
     radius: 8,
     name: name,
     draggable: true,
@@ -72,13 +72,13 @@ function addAnchor(group, x, y, name) {
   anchor.on('mouseover', function() {
     var layer = this.getLayer();
     document.body.style.cursor = 'pointer';
-    this.setStrokeWidth(4);
+    // this.setStrokeWidth(4);
     layer.draw();
   });
   anchor.on('mouseout', function() {
     var layer = this.getLayer();
     document.body.style.cursor = 'default';
-    this.setStrokeWidth(2);
+    // this.setStrokeWidth(2);
     layer.draw();
   });
 
@@ -181,3 +181,23 @@ var sources = {
 $('#person').change(function() {
   loadImages(sources, initStage);  
 });
+
+
+function save_to_data_url() {
+  console.log('saving');
+  var data_url = $('#edit-fake div canvas')[0].toDataURL();
+  return data_url;
+}
+
+function save() {
+  console.log('save');
+  var data_url = save_to_data_url();
+  $('#preview').attr('src', data_url);
+}
+
+$(document).ready(function() {
+  $('#save').click(function() {
+    console.log('click save');
+    save();
+  });
+})
