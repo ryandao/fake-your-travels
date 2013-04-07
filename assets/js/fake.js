@@ -191,6 +191,7 @@ function save_to_data_url() {
 function preview() {
   var data_url = save_to_data_url();
   $('#preview').attr('src', data_url);
+  $('#preview-wrapper').modal();
   // $('#save').attr('b64', data_url);
   // $('#save').attr('b64', toB64(data_url));
 }
