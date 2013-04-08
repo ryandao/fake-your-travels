@@ -1,3 +1,33 @@
+body {
+  background-image: url('http://localhost/wish-you-were-here/assets/images/bg.png');
+}
+
+.app-header {
+  font-family: '"Josefin Slab",serif';
+  text-align: center;
+  color: #666;
+  font-size: 20px;
+  text-transform: none;
+  text-decoration: none;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.app-header a {
+  color: #666;
+}
+
+.app-header a:hover {
+  color: #666;
+  text-decoration: none;
+}
+
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .st-bg-image {
   width: 150px;
   margin-right: 10px;
