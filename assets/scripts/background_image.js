@@ -27,19 +27,19 @@ $(document).ready(function () {
     // Query the proxy server
     var searchQuery = $('#bg-selector input').val();
     $.ajax({
-      url: '/wish-you-were-here/images.php',
-      data: { search_terms: searchQuery },
+      url: '/fake-your-travels/images.php',
+      data: { query: searchQuery },
       type: 'GET',
       success: function(results) {
         loadingMessage$.hide();
         for (var i = 0; i < results.images.length; i++) {
-          var imgHtml = '<a href="#" id="' + i + '"><img src=' + results.images[i].thumb_url + ' class="st-bg-image"></a>';
+          var imgHtml = '<a href="#" id="' + i + '"><img src=' + results.images[i].thumbnail.url + ' class="st-bg-image"></a>';
           resultsDiv$.append(imgHtml);
         }
 
         $('a', resultsDiv$).click(function() {
           var id = parseInt($(this).attr('id'));
-          window.backgroundImg = results.images[id].preview.url;
+          window.backgroundImg = results.images[id].url;
           bg_proxy(backgroundImg);
 
           modal$.modal('hide');

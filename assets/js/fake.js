@@ -219,7 +219,7 @@ $(document).ready(function() {
   $('#go-real-btn').click(function() {
     $('#edit-canvas .searching').show();
     $.ajax({
-      url: '/wish-you-were-here/download.php',
+      url: '/fake-your-travels/download.php',
       data: { image_id: '107232053' },
       type: 'post',
       success: function(result) {
