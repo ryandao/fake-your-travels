@@ -31,7 +31,7 @@ function display_image(image_data) {
 }
 
 function ff_post(data, callback) {
-  var base_url = "assets/php/ff.php/";
+  var base_url = "ff.php/";
   jQuery.post(base_url, data, callback, "json");
 }
 
@@ -54,7 +54,7 @@ var featherEditor = new Aviary.Feather({
 });
 
 function person_proxy(url) {
-  jQuery.post("assets/php/image-proxy.php", {link: url}, update_person, "json");
+  jQuery.post("image-proxy.php", {link: url}, update_person, "json");
 }
 
 function update_person(data_json) {

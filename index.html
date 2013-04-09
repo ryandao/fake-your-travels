@@ -2,9 +2,9 @@
 
 <html>
   <head>
-    <script type="text/javascript" src="assets/scripts/lib/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/background_image.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/background_image.js"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
     <script type="text/javascript" src="assets/js/ff.js"></script>
@@ -35,15 +35,7 @@
         <div id="edit-canvas">
           <div>
             <div id="edit-fake"></div>
-            <button class="btn btn-danger btn-emphasis hide" id="preview-btn" type="button"><h4>Preview</h4></button>
-            <button class="btn btn-danger btn-emphasis" id="go-real-btn" type="button">
-              <h4>
-                Make it real!
-                <span class="searching hide">
-                  <i class="icon-spinner icon-spin"></i>
-                </span>
-              </h4>
-            </button>
+            <button class="btn btn-danger btn-emphasis" id="preview-btn" type="button"><h4>Preview</h4></button>
           </div>
         </div>
         <!--End canvas-->
@@ -98,6 +90,14 @@
                   <h6>Loading...</h6>
                 </span>
                 <div class="results"></div>
+                <button class="btn btn-danger hide" id="load-more-btn" type="button">
+                  <h5>
+                    Load more
+                    <span class="searching hide">
+                      <i class="icon-spinner icon-spin"></i>
+                    </span>
+                  </h5>
+                </button>
               </div>
 
               <div class="modal-footer">

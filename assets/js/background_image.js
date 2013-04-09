@@ -1,17 +1,3 @@
-function bg_proxy(url) {
-  jQuery.post("assets/php/image-proxy.php", {link: url}, update_bg, "json");
-}
-
-function update_bg(data_json) {
-  backgroundImg = "data:image/png;base64," + data_json;
-  var image = new Image();
-  image.onload = function() {
-    setBackgroundImage(image, backgroundGroup);
-  }
-  image.src = backgroundImg;
-  // refresh_canvas();
-}
-
 $(document).ready(function () {
   initStage({});
 
@@ -27,7 +13,7 @@ $(document).ready(function () {
     // Query the proxy server
     var searchQuery = $('#bg-selector input').val();
     $.ajax({
-      url: '/fake-your-travels/images.php',
+      url: 'images.php',
       data: { query: searchQuery },
       type: 'GET',
       success: function(results) {
@@ -43,7 +29,6 @@ $(document).ready(function () {
           bg_proxy(backgroundImg);
 
           modal$.modal('hide');
-
         })
       }
     })
@@ -52,4 +37,18 @@ $(document).ready(function () {
 
     return false;
   })
+
+  function bg_proxy(url) {
+    jQuery.post("image-proxy.php", {link: url}, update_bg, "json");
+  }
+
+  function update_bg(data_json) {
+    console.log(data_json);
+    backgroundImg = "data:image/png;base64," + data_json;
+    var image = new Image();
+    image.onload = function() {
+      setBackgroundImage(image, backgroundGroup);
+    }
+    image.src = backgroundImg;
+  }
 })

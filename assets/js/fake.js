@@ -216,27 +216,6 @@ function refresh_canvas() {
 
 
 $(document).ready(function() {
-  $('#go-real-btn').click(function() {
-    $('#edit-canvas .searching').show();
-    $.ajax({
-      url: '/fake-your-travels/download.php',
-      data: { image_id: '107232053' },
-      type: 'post',
-      success: function(result) {
-        $('#edit-canvas .searching').hide();
-        window.backgroundImg = result.url;
-        bg_proxy(backgroundImg);
-
-        // Switch go real btn to preview btn
-        $('#preview-btn').show();
-        $('#go-real-btn').hide();
-      },
-      error: function(error) {
-        console.log(error);
-      }
-    })
-  });
-
   $('#preview-btn').click(function() {
     preview();
   })

@@ -62,15 +62,15 @@ span.searching .icon-spinner {
 }
 
 .btn-emphasis {
-  /*background-color: #c50a21;*/
-  /*background-image: -webkit-linear-gradient(top, #ce1813, #c50a21);*/
   width: 600px;
   height: 40px;
   margin-top: 10px;
 }
 
-.btn-emphasis:hover {
-  /*background-color: #FF0000;*/
+.btn #load-more-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
 }
 
 .action-group {

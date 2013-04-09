@@ -1,5 +1,5 @@
 function wg_post() {
-  jQuery.post("assets/php/wg.php", {url: $('#preview').attr('src')}, wg_checkout, "json");
+  jQuery.post("wg.php", {url: $('#preview').attr('src')}, wg_checkout, "json");
 }
 
 function wg_checkout(data) {
